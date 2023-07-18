@@ -14,7 +14,7 @@ router.get('/:id', authMiddleware, taskController.getTaskById);
 router.post('/', authMiddleware, 
     [
         body('title').notEmpty().withMessage('Title is required'),
-        body('description').notEmpty.withMessage('Description is required'),
+        body('description').notEmpty().withMessage('Description is required'),
         body('dueDate').notEmpty().withMessage('Due date is required').isISO8601().toDate(),
         body('priority').optional().isIn(['low', 'medium', 'high']).withMessage('Invalid priority'),
         body('assignedTo').notEmpty().withMessage('Assignee is required'),
