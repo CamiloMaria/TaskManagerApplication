@@ -1,7 +1,7 @@
 ### User Profile
 GET http://localhost:3000/users/profile
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGI1ZTY5MTMwNjQxOWZhM2I4NjM1ODYiLCJpYXQiOjE2ODk2NDI2NDMsImV4cCI6MTY4OTY0NjI0M30.yTsyBjZORj4bFjd_nYdRk5Htc3NZ6KSiB7mxXa1gmSE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGI2OTU1YTUyMzIyNWJjOGFjMGEzYWUiLCJpYXQiOjE2ODk2ODczOTksImV4cCI6MTY4OTY5MDk5OX0.HtDsyuH15hGva4wwa1JIUDXvNDHXpgonKHN42ScL99c
 
 ###
 ### User Registration
@@ -12,9 +12,9 @@ POST http://localhost:3000/users/register
 Content-Type: application/json
 
 {
-  "username": "john",
-  "email": "john@example.com",
-  "password": "123456"
+  "username": "Poppy",
+  "email": "Poppy@example.com",
+  "password": "321321"
 }
 
 ###
@@ -27,7 +27,7 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-  "username": "john",
-  "password": "123456"
+  "username": "Poppy",
+  "password": "321321"
 }
 
