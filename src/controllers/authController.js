@@ -1,8 +1,15 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { validationResult } = require('express-validator');
 
 const registerUser = async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array()});
+    }
+
     try {
         const { username, email, password } = req.body;
 

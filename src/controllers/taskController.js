@@ -15,9 +15,9 @@ const getAllTasks = async (req, res) => {
 
 const getTaskById = async (req, res) => {
   try{
-    const Task = await Task.findOne({
+    const task = await Task.findOne({
       _id: req.params.id,
-      createBy: req.user._id
+      createdBy: req.user._id
     }).populate('createdBy', 'username').populate('assignedTo', 'username');
 
     if (!task) {
@@ -32,14 +32,15 @@ const getTaskById = async (req, res) => {
 
 const createTask = async (req, res) => {
   try {
-    const {title, description, dueDate, priority, assignedTo } = req.body;
+    const {title, description, dueDate, priority, assignedTo, status } = req.body;
     const task = new Task({
       title,
       description,
       dueDate,
       priority,
       assignedTo,
-      createdBy: req.user._id,
+      status,
+      createdBy: req.user
     });
 
     await task.save();
@@ -53,11 +54,11 @@ const createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   try {
-    const {title, description, dueDate, priority, assignedTo } = req.body;
+    const {title, description, dueDate, priority, assignedTo, status } = req.body;
     const task = await Task.findOneAndUpdate(
       { _id: req.params.id, createdBy: req.user._id },
       { title, description, dueDate, priority, status, assignedTo },
-      { new: true }
+      { new: true, runValidators: true }
     ).populate('createdBy', 'username').populate('assignedTo', 'username');
 
     if (!task) {
@@ -72,7 +73,7 @@ const updateTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
   try {
-    const task = await Task.findOneAndUpdate(
+    const task = await Task.findOneAndDelete( 
       { _id: req.params.id, createdBy: req.user._id }
     )
 
