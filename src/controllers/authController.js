@@ -43,13 +43,13 @@ const loginUser = async (req, res) => {
       
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ error: 'Invalid credentials' });
+            return res.status(401).json({ error: 'User not found. Please check your username.' });
         }
       
         // Check password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ error: 'Invalid credentials' });
+            return res.status(402).json({ error: 'Invalid password. Please check your password.' });
         }
       
         // Generate JWT token
