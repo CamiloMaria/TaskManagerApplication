@@ -7,15 +7,21 @@ const registerUser = async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array()});
+        const errorMessages = errors.array().map(error => error);
+        return res.status(400).json({ errors: errorMessages}); 
     }
 
-    try {
+    try{
         const { username, email, password } = req.body;
-
-        let user = await User.findOne({ $or: [{ username}, { email }] });
+        
+        let user = await User.findOne({ username });
         if (user) {
-            return res.status(400).json({ error: "User already exists "});
+            return res.status(401).json({ error: "Username already exists "});
+        }
+
+        let message = await User.findOne({ email });
+        if (message) {
+            return res.status(402).json({ error: "Email already exists "});
         }
 
         //Hash the password
@@ -49,7 +55,7 @@ const loginUser = async (req, res) => {
         // Check password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(402).json({ error: 'Invalid password. Please check your password.' });
+            return res.status(402).json({ error: 'Incorrect password. Please check your password.' });
         }
       
         // Generate JWT token
