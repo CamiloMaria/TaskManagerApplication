@@ -1,3 +1,5 @@
+Before starting I want to tell you that there is another readme.md in spanish in case you are interested. Thank you
+
 # TaskManagerApplication Backend - Administrador de Tareas
 
 Welcome to the TaskManagerApplication backend! Here I will explain what the task manager developed with Node.js and Express is all about. Get ready to efficiently and organizedly manage your tasks.
