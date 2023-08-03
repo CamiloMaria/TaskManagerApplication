@@ -11,7 +11,7 @@ TaskManagerApplication es una poderosa aplicación de administración de tareas 
 El backend utiliza el framework de MongoDB, Mongoose, para gestionar los datos de manera estructurada. Aquí están los modelos de datos que utilizamos para representar las tareas en nuestra aplicación:
 
 ## Modelo de tarea(Task)
-```javascript
+```typescript
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
@@ -60,7 +60,7 @@ module.exports = Task;
 ```
 
 ## Modelo de usuario(User)
-```javascript
+```typescript
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
