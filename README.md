@@ -6,6 +6,15 @@
 
 TaskManagerApplication es una poderosa aplicación de administración de tareas que te permitirá organizar tu trabajo de manera efectiva. Con esta herramienta, podrás asignarte tareas, así como asignar tareas a otros usuarios, establecer fechas de entrega, prioridades y estados, para tener un control total sobre tus responsabilidades.
 
+## Tecnologías y librerías utilizadas
+Para brindar funcionalidades avanzadas y seguridad en nuestro backend, he utilizado las siguientes librerías:
+
+- **Cors**: Utilice cors para habilitar la política de mismo origen (CORS) en nuestra aplicación. Esto permite que el frontend se comunique con el backend sin restricciones de seguridad.
+- **Bcrypt**: Implemente bcrypt para asegurar que las contraseñas de los usuarios se almacenen de manera segura mediante el hash y el salting.
+- **Jsonwebtoken**: He integrado jsonwebtoken para generar y verificar tokens de autenticación. Esto nos permite implementar un sistema seguro de autenticación basado en tokens.
+- **Mongoose**: Utilice mongoose como la librería de modelado de objetos de MongoDB. Con mongoose, podemos definir esquemas y modelos para nuestras tareas y usuarios, lo que facilita la interacción con la base de datos.
+- **Dotenv**: Implemente dotenv para cargar variables de entorno desde un archivo .env. Esto me permite configurar de manera segura y sencilla las variables sensibles, como las credenciales de la base de datos o la clave secreta para firmar los tokens.
+
 # Modelos de datos
 
 El backend utiliza el framework de MongoDB, Mongoose, para gestionar los datos de manera estructurada. Aquí están los modelos de datos que utilizamos para representar las tareas en nuestra aplicación:
